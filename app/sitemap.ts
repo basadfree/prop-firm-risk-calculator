@@ -1,0 +1,25 @@
+import type { MetadataRoute } from "next";
+import { ASSETS } from "@/lib/assets";
+import { absoluteUrl } from "@/lib/site";
+
+/** Auto-generated sitemap — homepage + every asset calculator page. */
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const assetPages: MetadataRoute.Sitemap = ASSETS.map((asset) => ({
+    url: absoluteUrl(`/calculator/${asset.slug}`),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  return [
+    {
+      url: absoluteUrl("/"),
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    ...assetPages,
+  ];
+}
