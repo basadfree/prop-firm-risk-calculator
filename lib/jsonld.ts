@@ -3,7 +3,7 @@
  * Rendered as <script type="application/ld+json"> inside Server Components.
  */
 
-import { SITE_NAME, SITE_TAGLINE, siteUrl, absoluteUrl } from "@/lib/site";
+import { SITE_NAME, SITE_TAGLINE, siteUrl, absoluteUrl, AUTHOR } from "@/lib/site";
 
 export interface SoftwareAppArgs {
   name: string;
@@ -60,6 +60,27 @@ export function webSiteJsonLd() {
   };
 }
 
+export function personJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: AUTHOR.name,
+    url: AUTHOR.url,
+    image: AUTHOR.logo,
+    jobTitle: AUTHOR.jobTitle,
+    description: AUTHOR.bio,
+    knowsAbout: AUTHOR.knowsAbout,
+    sameAs: [
+      AUTHOR.linkedIn,
+      "https://instant-data-converter.vercel.app",
+      "https://cron-generator-kappa.vercel.app",
+      "https://jwt-base64-inspector.vercel.app",
+      "https://prop-firm-risk-calculator.vercel.app",
+    ],
+    worksFor: { "@type": "Organization", name: SITE_NAME, url: siteUrl() },
+  };
+}
+
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -67,6 +88,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: siteUrl(),
     logo: absoluteUrl("/icon.svg"),
+    sameAs: [AUTHOR.linkedIn],
   };
 }
 

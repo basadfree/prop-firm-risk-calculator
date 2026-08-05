@@ -75,6 +75,11 @@ export function SiteFooter() {
                 Prop Position Sizing Guide
               </Link>
             </li>
+            <li>
+              <Link href="/about" className="transition-colors hover:text-primary">
+                About the author
+              </Link>
+            </li>
           </ul>
         </div>
 

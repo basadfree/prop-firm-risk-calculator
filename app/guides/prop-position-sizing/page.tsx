@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ASSETS } from "@/lib/assets";
-import { SITE_NAME, absoluteUrl } from "@/lib/site";
+import { SITE_NAME, AUTHOR, absoluteUrl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import {
   webSiteJsonLd,
@@ -77,6 +77,10 @@ export default function PropPositionSizingPage() {
             "Learn exactly how to size positions on funded prop accounts with the 2% rule, daily loss limits, tick values and worked examples.",
           url: guideUrl,
           inLanguage: "en",
+          image: AUTHOR.logo,
+          datePublished: "2026-08-05",
+          dateModified: "2026-08-06",
+          author: { "@type": "Person", name: AUTHOR.name, url: AUTHOR.url },
           publisher: { "@type": "Organization", name: SITE_NAME, url: absoluteUrl("/") },
         }}
       />
@@ -114,6 +118,27 @@ export default function PropPositionSizingPage() {
           the exact formula prop-firm traders use to size NQ, MNQ, BTC, gold and forex
           trades, with real numbers you can check yourself.
         </p>
+
+        <div className="mt-6 flex items-center gap-3 border-t pt-5 text-sm text-muted-foreground">
+          <img
+            src={AUTHOR.logo}
+            alt={AUTHOR.name}
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full border bg-card object-contain p-1"
+          />
+          <div>
+            <p>
+              Written by{" "}
+              <Link href="/about" className="font-medium text-foreground hover:underline">
+                {AUTHOR.name}
+              </Link>
+            </p>
+            <p>
+              Updated <time dateTime="2026-08-06">August 6, 2026</time>
+            </p>
+          </div>
+        </div>
 
         <h2 className="mt-12 text-2xl font-bold tracking-tight">
           Why position sizing decides whether you pass the evaluation
