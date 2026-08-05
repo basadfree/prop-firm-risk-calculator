@@ -1,18 +1,23 @@
 import Link from "next/link";
 import { Gauge } from "lucide-react";
 
+import { SearchWidget } from "@/components/search-widget";
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between">
+      <div className="container flex h-14 items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
           <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <Gauge className="h-4 w-4" />
           </span>
-          <span>
+          <span className="hidden sm:inline">
             Risk<span className="text-primary">Calc</span>
           </span>
         </Link>
+        <div className="flex flex-1 justify-center px-1 md:px-4">
+          <SearchWidget />
+        </div>
         <nav className="hidden items-center gap-6 text-sm text-muted-foreground sm:flex">
           <Link href="/" className="transition-colors hover:text-foreground">
             Calculator
