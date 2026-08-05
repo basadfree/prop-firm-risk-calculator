@@ -36,7 +36,13 @@ export const metadata: Metadata = {
     "funded account calculator",
     "forex lot size calculator",
   ],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: siteUrl(),
+      "x-default": siteUrl(),
+    },
+  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

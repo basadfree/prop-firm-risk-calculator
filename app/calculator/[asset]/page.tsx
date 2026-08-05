@@ -36,7 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: asset.title,
     description: asset.description,
     keywords: asset.keywords,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        en: url,
+        "x-default": url,
+      },
+    },
     openGraph: {
       type: "website",
       siteName: "RiskCalc",
