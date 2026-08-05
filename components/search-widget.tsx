@@ -59,6 +59,9 @@ export function SearchWidget() {
           aria-label="Search markets"
           role="combobox"
           aria-expanded={open}
+          aria-controls="search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
           className="h-8 w-full rounded-md border border-input bg-muted/50 pl-8 pr-8 text-sm placeholder:text-muted-foreground focus:bg-background focus:outline-none focus:ring-1 focus:ring-ring"
         />
         {query && (
@@ -81,9 +84,9 @@ export function SearchWidget() {
           {results.length === 0 ? (
             <p className="px-3 py-4 text-sm text-muted-foreground">No markets found.</p>
           ) : (
-            <ul>
-              {results.map((a) => (
-                <li key={a.slug}>
+            <ul id="search-results" role="listbox" aria-label="Search results">
+              {results.map((a, i) => (
+                <li key={a.slug} role="option" aria-selected={i === 0}>
                   <Link
                     href={`/calculator/${a.slug}`}
                     onClick={() => {
