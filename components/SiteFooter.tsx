@@ -67,6 +67,14 @@ export function SiteFooter() {
                 Risk Management FAQ
               </Link>
             </li>
+            <li>
+              <Link
+                href="/guides/prop-position-sizing"
+                className="transition-colors hover:text-primary"
+              >
+                Prop Position Sizing Guide
+              </Link>
+            </li>
           </ul>
         </div>
 
