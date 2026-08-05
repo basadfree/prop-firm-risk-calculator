@@ -1,0 +1,136 @@
+# RiskCalc — Full Content Index
+
+> Prop-firm & SMC risk management calculator. Compute exact position size for indices, crypto, forex, and commodities — designed for prop firm, SMC, and ICT traders. Know your exact size before you click buy.
+
+RiskCalc (prop-firm-risk-calculator.vercel.app) is a position-size and risk-management calculator for prop firm, SMC, and ICT traders. It converts risk percentage, account balance, entry price, and stop-loss into an exact position size in contracts, lots, or units — across major indices, crypto, forex, and gold.
+
+## Site Structure
+
+- Homepage (`/`): category overview and featured market calculators.
+- Calculator pages (`/calculator/:slug`): 8 market-specific pages, each with H1, SEO intro, focus keywords, and the live position-size calculator.
+- Featured pages (promoted first): Nasdaq 100 (NQ), Micro Nasdaq 100 (MNQ), Bitcoin (BTC), Ethereum (ETH), Gold (XAU/USD), EUR/USD.
+- Risk Management FAQ on the homepage.
+
+## Core Use Cases
+
+- Calculate exact position size from risk %, account balance, entry, and stop-loss
+- Size positions for prop firm evaluations and funded accounts
+- Preview risk-to-reward ratio with an optional take-profit level
+- Size trades on indices (NQ, MNQ, ES, US30), crypto (BTC, ETH), forex (EUR/USD), and gold (XAU/USD)
+- Follow SMC/ICT risk management rules with precise contract math
+- Understand contract specifications per market (tick value, pip size, price precision, position unit)
+
+## How Position Sizing Works
+
+The calculator uses each market's contract specifications to convert your dollar risk into an exact position size:
+
+1. Dollar risk = account balance × risk percentage.
+2. Stop distance in price = entry price − stop-loss.
+3. Position size = dollar risk ÷ (stop distance × tick value).
+
+For forex pairs, the stop distance is converted from price into pips using the pip size before the division. Output is expressed in the market's native position unit (contracts, coins, or lots). An optional take-profit lets you preview the risk-to-reward (R:R) ratio.
+
+---
+
+## Index Calculators
+
+### Nasdaq 100 (NQ) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/nq-nasdaq
+- Title: NQ Position Size Calculator for Prop Firms — Nasdaq 100 Risk Calculator
+- H1: Nasdaq 100 (NQ) Position Size Calculator
+- Description: Calculate your exact NQ (Nasdaq 100 E-mini) position size in contracts based on account balance, risk % and stop-loss. Built for prop firm and SMC/ICT traders.
+- Intro: The NQ (E-mini Nasdaq 100) pays $20 per point per contract. Enter your account balance, risk percentage and stop-loss, and this tool instantly returns the exact number of NQ contracts to trade — keeping your risk inside prop firm drawdown limits.
+- Contract specs: tick value $20 per point, position unit contracts, price precision 2 decimals. Realistic pre-fill: entry 19850, stop 19700, take-profit 20150.
+- Keywords: NQ calculator, Nasdaq 100 position size, NQ risk calculator, prop firm NQ.
+
+### Micro Nasdaq 100 (MNQ) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/mnq-micro-nasdaq
+- Title: MNQ Position Size Calculator for Prop Firms — Micro Nasdaq 100 Risk Calculator
+- H1: Micro Nasdaq 100 (MNQ) Position Size Calculator
+- Description: Calculate your exact MNQ (Micro Nasdaq 100) position size in contracts by account balance, risk % and stop-loss. Ideal for small prop firm accounts.
+- Intro: The MNQ (Micro E-mini Nasdaq 100) pays $2 per point per contract — 10× smaller than the full NQ. This calculator tells you exactly how many MNQ contracts keep your trade risk at your chosen percentage.
+- Contract specs: tick value $2 per point, position unit contracts, price precision 2 decimals. Realistic pre-fill: entry 19850, stop 19700, take-profit 20150.
+- Keywords: MNQ calculator, Micro Nasdaq 100 position size, MNQ risk calculator, micro futures.
+
+### S&P 500 (ES) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/es-s-and-p-500
+- Title: ES Position Size Calculator for Prop Firms — S&P 500 Risk Calculator
+- H1: S&P 500 (ES) Position Size Calculator
+- Description: Calculate your exact ES (E-mini S&P 500) position size in contracts based on account balance, risk % and stop-loss. For prop firm traders.
+- Intro: The ES E-mini pays $50 per point per contract. Use this S&P 500 position size calculator to stay disciplined and protect your prop firm balance.
+- Contract specs: tick value $50 per point, position unit contracts, price precision 2 decimals. Realistic pre-fill: entry 5580, stop 5530, take-profit 5680.
+- Keywords: ES position size, S&P 500 calculator, ES risk calculator.
+
+### Dow Jones (US30) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/us30-dow-jones
+- Title: US30 Position Size Calculator for Prop Firms — Dow Jones Risk Calculator
+- H1: Dow Jones (US30) Position Size Calculator
+- Description: Calculate your exact US30 (Dow Jones) position size in contracts based on account balance, risk % and stop-loss. Built for prop firm traders.
+- Intro: One US30 contract pays $5 per index point. This Dow Jones position size calculator turns your stop distance and risk % into the correct contract count.
+- Contract specs: tick value $5 per point, position unit contracts, price precision 2 decimals. Realistic pre-fill: entry 41200, stop 41000, take-profit 41600.
+- Keywords: US30 position size, Dow Jones calculator, US30 risk calculator.
+
+---
+
+## Crypto Calculators
+
+### Bitcoin (BTC) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/btc-bitcoin
+- Title: BTC Position Size Calculator for Prop Firms — Bitcoin Risk Calculator
+- H1: Bitcoin (BTC) Position Size Calculator
+- Description: Calculate your exact Bitcoin position size in BTC based on account balance, risk % and stop-loss. Built for prop firm and SMC crypto traders.
+- Intro: Position sizing Bitcoin is about coins, not contracts: divide your dollar risk by the distance from entry to stop. This BTC calculator does it instantly for your prop firm account.
+- Contract specs: tick value $1 per $1 move, position unit coins, price precision 2 decimals. Realistic pre-fill: entry 67000, stop 65000, take-profit 71000.
+- Keywords: Bitcoin position size, BTC risk calculator, Bitcoin risk management, crypto prop firm.
+
+### Ethereum (ETH) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/eth-ethereum
+- Title: ETH Position Size Calculator for Prop Firms — Ethereum Risk Calculator
+- H1: Ethereum (ETH) Position Size Calculator
+- Description: Calculate your exact Ethereum position size in ETH based on account balance, risk % and stop-loss. Built for SMC and prop firm crypto traders.
+- Intro: Ethereum position size equals your dollar risk divided by the stop distance in price. Use this ETH risk calculator to size every SMC trade consistently.
+- Contract specs: tick value $1 per $1 move, position unit coins, price precision 2 decimals. Realistic pre-fill: entry 3550, stop 3450, take-profit 3750.
+- Keywords: Ethereum position size, ETH risk calculator, Ethereum risk management, ETH prop firm.
+
+---
+
+## Commodity Calculator
+
+### Gold (XAU/USD) Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/xau-gold
+- Title: Gold Position Size Calculator for Prop Firms — XAU/USD Risk Calculator
+- H1: Gold (XAU/USD) Position Size Calculator
+- Description: Calculate your exact Gold (XAU/USD) position size in lots based on account balance, risk % and stop-loss. Perfect for prop firm and SMC traders.
+- Intro: One standard lot of XAU/USD (100 oz) moves $100 for every $1 of gold. This Gold risk calculator converts your stop distance and risk % into the exact lot size for your prop firm account.
+- Contract specs: tick value $100 per $1 move per lot, position unit lots, price precision 2 decimals. Realistic pre-fill: entry 2380, stop 2360, take-profit 2420.
+- Keywords: Gold position size, XAU/USD risk calculator, Gold lot size, Gold prop firm.
+
+---
+
+## Forex Calculator
+
+### EUR/USD Position Size Calculator
+- URL: https://prop-firm-risk-calculator.vercel.app/calculator/eur-usd
+- Title: EUR/USD Position Size Calculator for Prop Firms — Forex Risk Calculator
+- H1: EUR/USD Position Size Calculator
+- Description: Calculate your exact EUR/USD position size in lots based on account balance, risk % and stop-loss in pips. Built for prop firm forex traders.
+- Intro: For EUR/USD, one standard lot risks $10 per pip. Enter your stop in price and this calculator converts it to pips, then returns the exact lot size for your risk %.
+- Contract specs: tick value $10 per pip per lot, pip size 0.0001, position unit lots, price precision 5 decimals. Realistic pre-fill: entry 1.085, stop 1.080, take-profit 1.095.
+- Keywords: EUR/USD position size, forex lot size calculator, EURUSD risk calculator, forex prop firm.
+
+---
+
+## Key Features
+
+- Exact position size output in contracts, coins, or lots
+- Risk-to-reward (R:R) preview with take-profit input
+- Pre-filled realistic entries and stop-losses for each market
+- Correct contract specifications (tick value, pip size, precision) per asset
+- Risk Management FAQ for prop firm rules
+- Purpose-built for prop firm evaluations, funded accounts, and SMC/ICT methodology
+
+## Related Tools Network
+
+- [Instant Data Converter](https://instant-data-converter.vercel.app): JSON/CSV/text conversion, base64, and URL tools.
+- [Token Inspector](https://jwt-base64-inspector.vercel.app): Decode JWTs, Base64, URLs and generate hashes.
+- [CronGen](https://cron-generator-kappa.vercel.app): Visual cron expression generator and translator.
