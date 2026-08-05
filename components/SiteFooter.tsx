@@ -1,10 +1,28 @@
 import Link from "next/link";
 import { ASSETS } from "@/lib/assets";
 
+const recommendedTools = [
+  {
+    name: "Instant Data Converter",
+    href: "https://instant-data-converter.vercel.app",
+    tagline: "Data & text conversion tools",
+  },
+  {
+    name: "Token Inspector",
+    href: "https://jwt-base64-inspector.vercel.app",
+    tagline: "JWT & Base64 decoder",
+  },
+  {
+    name: "CronGen",
+    href: "https://cron-generator-kappa.vercel.app",
+    tagline: "Cron expression generator",
+  },
+];
+
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-border/60 bg-background">
-      <div className="container grid gap-10 py-12 sm:grid-cols-3">
+      <div className="container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="text-sm font-semibold">
             Risk<span className="text-primary">Calc</span>
@@ -49,6 +67,26 @@ export function SiteFooter() {
                 Risk Management FAQ
               </Link>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold">Recommended Tools</p>
+          <ul className="mt-3 space-y-3 text-sm text-muted-foreground">
+            {recommendedTools.map((tool) => (
+              <li key={tool.href}>
+                <a
+                  href={tool.href}
+                  rel="dofollow"
+                  className="block transition-colors hover:text-primary"
+                >
+                  {tool.name}
+                  <span className="block text-xs text-muted-foreground/80">
+                    {tool.tagline}
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
