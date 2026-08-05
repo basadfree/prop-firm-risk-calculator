@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ASSETS, getAssetBySlug } from "@/lib/assets";
 import { PositionSizeCalculator } from "@/components/calculator/PositionSizeCalculator";
 import { AssetGrid } from "@/components/AssetGrid";
+import { QuickAnswers } from "@/components/QuickAnswers";
 import { FAQSection, FAQ_ITEMS } from "@/components/FAQSection";
 import { JsonLd } from "@/components/JsonLd";
 import {
@@ -82,6 +83,8 @@ export default function AssetCalculatorPage({ params }: Props) {
           {asset.seoIntro}
         </p>
       </div>
+
+      <QuickAnswers asset={asset} />
 
       {/* Calculator pre-configured for this market */}
       <div className="mt-10">
