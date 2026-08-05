@@ -1,0 +1,38 @@
+# RiskCalc
+
+> Prop-firm & SMC risk management calculator. Compute exact position size for indices, crypto, forex, and commodities — designed for prop firm, SMC, and ICT traders. Know your exact size before you click buy.
+
+RiskCalc (prop-firm-risk-calculator.vercel.app) is a position-size and risk-management calculator for prop firm, SMC, and ICT traders. It converts risk percentage, account balance, entry price, and stop-loss into an exact position size in contracts, lots, or units — across major indices, crypto, forex, and gold.
+
+## Core Use Cases
+
+- Calculate exact position size from risk %, account balance, entry, and stop-loss
+- Size positions for prop firm evaluations and funded accounts
+- Preview risk-to-reward ratio with an optional take-profit level
+- Size trades on indices (NQ, ES, US30), crypto (BTC, ETH), forex (EUR/USD), and gold (XAU/USD)
+- Follow SMC/ICT risk management rules with precise contract math
+
+## Supported Markets & Calculators
+
+- [Nasdaq 100 (NQ) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/nq-nasdaq): $20 per point per contract position sizing.
+- [Micro Nasdaq 100 (MNQ) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/mnq-micro-nasdaq): Micro contract position sizing for smaller accounts.
+- [Bitcoin (BTC) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/btc-bitcoin): Crypto position sizing for Bitcoin.
+- [Ethereum (ETH) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/eth-ethereum): Crypto position sizing for Ethereum.
+- [Gold (XAU/USD) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/xau-gold): Gold position sizing with pip-based stop distances.
+- [EUR/USD Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/eur-usd): Forex position sizing in lots.
+- [S&P 500 (ES) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/es-s-and-p-500): $50 per point per contract position sizing.
+- [Dow Jones (US30) Calculator](https://prop-firm-risk-calculator.vercel.app/calculator/us30-dow-jones): $5 per point per contract position sizing.
+
+## Key Features
+
+- Exact position size output in contracts, lots, or units
+- Risk-to-reward (R:R) preview with take-profit input
+- Pre-filled realistic entries and stop-losses for each market
+- Correct contract specifications (tick value, pip size, precision) per asset
+- Risk Management FAQ for prop firm rules
+
+## Related Tools Network
+
+- [Instant Data Converter](https://instant-data-converter.vercel.app): JSON/CSV/text conversion, base64, and URL tools.
+- [Token Inspector](https://jwt-base64-inspector.vercel.app): Decode JWTs, Base64, URLs and generate hashes.
+- [CronGen](https://cron-generator-kappa.vercel.app): Visual cron expression generator and translator.
