@@ -3,8 +3,14 @@ import { notFound } from "next/navigation";
 import { ASSETS, getAssetBySlug } from "@/lib/assets";
 import { PositionSizeCalculator } from "@/components/calculator/PositionSizeCalculator";
 import { AssetGrid } from "@/components/AssetGrid";
-import { FAQSection } from "@/components/FAQSection";
-import { softwareApplicationJsonLd } from "@/lib/jsonld";
+import { FAQSection, FAQ_ITEMS } from "@/components/FAQSection";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  softwareApplicationJsonLd,
+  faqJsonLd,
+  breadcrumbJsonLd,
+  webSiteJsonLd,
+} from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 import { calculatePositionSize } from "@/lib/calc";
 import { formatNumber, formatMoney } from "@/lib/utils";
@@ -121,18 +127,21 @@ export default function AssetCalculatorPage({ params }: Props) {
         </div>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            softwareApplicationJsonLd({
-              name: asset.h1,
-              description: asset.description,
-              url,
-              keywords: asset.keywords,
-            }),
-          ),
-        }}
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: asset.h1,
+          description: asset.description,
+          url,
+          keywords: asset.keywords,
+        })}
+      />
+      <JsonLd data={faqJsonLd({ url, questions: FAQ_ITEMS })} />
+      <JsonLd data={webSiteJsonLd()} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: asset.name, path: `/calculator/${asset.slug}` },
+        ])}
       />
     </div>
   );

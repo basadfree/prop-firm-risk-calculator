@@ -5,7 +5,15 @@ import { AssetGrid } from "@/components/AssetGrid";
 import { FAQSection, FAQ_ITEMS } from "@/components/FAQSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { faqJsonLd, softwareApplicationJsonLd } from "@/lib/jsonld";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  faqJsonLd,
+  softwareApplicationJsonLd,
+  webSiteJsonLd,
+  organizationJsonLd,
+  itemListJsonLd,
+} from "@/lib/jsonld";
+import { ASSETS } from "@/lib/assets";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata = {
@@ -153,37 +161,38 @@ export default function HomePage() {
       </section>
 
       {/* Structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            softwareApplicationJsonLd({
-              name: "Prop-Firm & SMC Risk Management Calculator",
-              description:
-                "Free position size and risk management calculator for prop firm traders. Computes lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex.",
-              url: absoluteUrl("/"),
-              keywords: [
-                "position size calculator",
-                "prop firm risk calculator",
-                "SMC risk management",
-              ],
-            }),
-          ),
-        }}
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Prop-Firm & SMC Risk Management Calculator",
+          description:
+            "Free position size and risk management calculator for prop firm traders. Computes lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex.",
+          url: absoluteUrl("/"),
+          keywords: [
+            "position size calculator",
+            "prop firm risk calculator",
+            "SMC risk management",
+          ],
+        })}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            faqJsonLd({
-              url: absoluteUrl("/#faq"),
-              questions: FAQ_ITEMS.map((i) => ({
-                question: i.question,
-                answer: i.answer,
-              })),
-            }),
-          ),
-        }}
+      <JsonLd data={webSiteJsonLd()} />
+      <JsonLd data={organizationJsonLd()} />
+      <JsonLd
+        data={itemListJsonLd(
+          ASSETS.map((a) => ({
+            name: a.name,
+            path: `/calculator/${a.slug}`,
+            description: a.description.split(" — ")[0],
+          }))
+        )}
+      />
+      <JsonLd
+        data={faqJsonLd({
+          url: absoluteUrl("/#faq"),
+          questions: FAQ_ITEMS.map((i) => ({
+            question: i.question,
+            answer: i.answer,
+          })),
+        })}
       />
     </div>
   );
