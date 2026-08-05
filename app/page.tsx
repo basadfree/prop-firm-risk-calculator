@@ -79,6 +79,12 @@ export default function HomePage() {
             >
               Position Sizing Guide
             </Link>
+            <Link
+              href="/guides/prop-max-drawdown"
+              className="inline-flex h-11 items-center gap-2 rounded-md border border-input px-8 text-sm font-medium transition-colors hover:bg-accent"
+            >
+              Max Loss vs Daily Loss
+            </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
             <div>
