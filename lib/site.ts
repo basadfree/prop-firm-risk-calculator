@@ -2,6 +2,7 @@
 
 export const SITE_NAME = "RiskCalc";
 export const SITE_TAGLINE = "Prop-Firm & SMC Risk Management Calculator";
+export const GOOGLE_ANALYTICS_ID = "G-QHC4P24JQK";
 
 export function siteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;

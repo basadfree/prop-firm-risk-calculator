@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { InstallPrompt } from "@/components/install-prompt";
-import { SITE_NAME, SITE_TAGLINE, absoluteUrl, siteUrl } from "@/lib/site";
+import { SITE_NAME, SITE_TAGLINE, GOOGLE_ANALYTICS_ID, absoluteUrl, siteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,6 +92,19 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <InstallPrompt appName="RiskCalc" />
+        <Script
+          id="gtag-base"
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
