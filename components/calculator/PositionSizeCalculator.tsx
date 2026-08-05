@@ -6,12 +6,13 @@ import { calculatePositionSize, type CalcError } from "@/lib/calc";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { AssetSelector } from "./AssetSelector";
 import { ResultPanel } from "./ResultPanel";
 import { ExportButtons } from "./ExportButtons";
 import { buildTradePlanData } from "./tradePlan";
-import { Landmark, Percent, TrendingUp, Wallet } from "lucide-react";
+import { Landmark, Percent, Sparkles, TrendingUp, Wallet } from "lucide-react";
 
 const STORAGE_KEY = "riskcalc:defaults";
 
@@ -102,6 +103,15 @@ export function PositionSizeCalculator({ initialAssetSlug }: PositionSizeCalcula
 
   const onAssetChange = useCallback((nextSlug: string) => setSlug(nextSlug), []);
 
+  const loadExampleTrade = useCallback(() => {
+    setBalance("100000");
+    setRiskPct("1");
+    setDailyLossPct("5");
+    setEntry(String(asset.defaultEntry));
+    setStop(String(asset.defaultStop));
+    setTakeProfit(asset.defaultTakeProfit ? String(asset.defaultTakeProfit) : "");
+  }, [asset]);
+
   const plan =
     output.ok
       ? buildTradePlanData(asset, {
@@ -140,7 +150,19 @@ export function PositionSizeCalculator({ initialAssetSlug }: PositionSizeCalcula
         {/* Inputs */}
         <Card className="border-border/60">
           <CardHeader className="pb-3">
-            <CardTitle className="text-base">Trade Parameters</CardTitle>
+            <div className="flex items-center justify-between gap-3">
+              <CardTitle className="text-base">Trade Parameters</CardTitle>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={loadExampleTrade}
+                className="gap-1.5"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                Load Example
+              </Button>
+            </div>
             <CardDescription>
               {asset.name} ({asset.symbol}) · {asset.tickValue >= 1 ? "$" : ""}
               {asset.tickValue}/unit move per {asset.positionUnit === "contracts" ? "contract" : asset.positionUnit}
