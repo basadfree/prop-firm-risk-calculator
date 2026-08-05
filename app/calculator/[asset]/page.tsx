@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { ASSETS, getAssetBySlug } from "@/lib/assets";
 import { PositionSizeCalculator } from "@/components/calculator/PositionSizeCalculator";
 import { AssetGrid } from "@/components/AssetGrid";
@@ -91,6 +92,15 @@ export default function AssetCalculatorPage({ params }: Props) {
       </div>
 
       <QuickAnswers asset={asset} />
+
+      <div className="mt-5 text-center">
+        <Link
+          href="/guides/prop-position-sizing"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+        >
+          Read the full position sizing guide →
+        </Link>
+      </div>
 
       {/* Calculator pre-configured for this market */}
       <div className="mt-10">
