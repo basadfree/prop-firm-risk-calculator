@@ -30,12 +30,6 @@ export function softwareApplicationJsonLd({
     description,
     url,
     keywords: keywords.join(", "),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "412",
-      bestRating: "5",
-    },
     featureList: [
       "Exact position size in contracts, lots or coins",
       "Risk % based sizing with stop-loss distance",
