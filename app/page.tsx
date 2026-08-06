@@ -85,6 +85,12 @@ export default function HomePage() {
             >
               Max Loss vs Daily Loss
             </Link>
+            <Link
+              href="/pip-value-calculator"
+              className="inline-flex h-11 items-center gap-2 rounded-md border border-input px-8 text-sm font-medium transition-colors hover:bg-accent"
+            >
+              Pip Value Calculator
+            </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
             <div>
