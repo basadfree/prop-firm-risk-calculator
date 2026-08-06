@@ -33,6 +33,7 @@ export const AUTHOR = {
   url: absoluteUrl("/about"),
   logo: absoluteUrl("/author-logo.png"),
   linkedIn: "https://www.linkedin.com/in/rbinyamin",
+  devTo: "https://dev.to/developer_tech",
   bio:
     "Benjamin Rotshtein is an algorithmic trader and developer who builds free prop-firm risk management tools. He publishes practical guides on position sizing, funded account rules and trading risk.",
   knowsAbout: ["Position Sizing", "Risk Management", "Prop Firms", "Algorithmic Trading", "Futures", "Forex"],

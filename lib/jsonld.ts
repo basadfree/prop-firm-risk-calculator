@@ -66,6 +66,7 @@ export function personJsonLd() {
     knowsAbout: AUTHOR.knowsAbout,
     sameAs: [
       AUTHOR.linkedIn,
+      AUTHOR.devTo,
       "https://instant-data-converter.vercel.app",
       "https://cron-generator-kappa.vercel.app",
       "https://jwt-base64-inspector.vercel.app",
@@ -82,7 +83,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: siteUrl(),
     logo: absoluteUrl("/icon.svg"),
-    sameAs: [AUTHOR.linkedIn],
+    sameAs: [AUTHOR.linkedIn, AUTHOR.devTo],
   };
 }
 

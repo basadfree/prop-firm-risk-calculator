@@ -79,6 +79,14 @@ export default function AboutPage() {
           >
             Connect on LinkedIn
           </a>
+          <a
+            href={AUTHOR.devTo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 rounded-lg border bg-card px-5 py-2.5 text-sm font-medium transition-colors hover:border-primary/50"
+          >
+            Follow on dev.to
+          </a>
         </div>
 
         <div className="mt-10 space-y-3 text-muted-foreground">
@@ -98,6 +106,15 @@ export default function AboutPage() {
               className="font-medium text-primary hover:underline"
             >
               LinkedIn
+            </a>{" "}
+            or{" "}
+            <a
+              href={AUTHOR.devTo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary hover:underline"
+            >
+              dev.to
             </a>
             .
           </p>
