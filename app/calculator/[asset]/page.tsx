@@ -5,7 +5,9 @@ import { ASSETS, getAssetBySlug } from "@/lib/assets";
 import { PositionSizeCalculator } from "@/components/calculator/PositionSizeCalculator";
 import { AssetGrid } from "@/components/AssetGrid";
 import { QuickAnswers } from "@/components/QuickAnswers";
+import { ComparisonTable } from "@/components/comparison-table";
 import { FAQSection, FAQ_ITEMS } from "@/components/FAQSection";
+import { getComparison } from "@/lib/comparisons";
 import { JsonLd } from "@/components/JsonLd";
 import {
   softwareApplicationJsonLd,
@@ -75,6 +77,7 @@ export default function AssetCalculatorPage({ params }: Props) {
 
   const example = workedExample(asset.slug);
   const url = absoluteUrl(`/calculator/${asset.slug}`);
+  const comparison = getComparison(asset.slug);
 
   return (
     <div className="container py-12 sm:py-16">
@@ -128,6 +131,8 @@ export default function AssetCalculatorPage({ params }: Props) {
       )}
 
       {/* Cross-links */}
+      {comparison && <ComparisonTable comparison={comparison} />}
+
       <section className="mt-16">
         <h2 className="text-center text-2xl font-bold tracking-tight">
           More market calculators
