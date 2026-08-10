@@ -91,6 +91,12 @@ export default function HomePage() {
             >
               Pip Value Calculator
             </Link>
+            <Link
+              href="/contract-size-calculator"
+              className="inline-flex h-11 items-center gap-2 rounded-md border border-input px-8 text-sm font-medium transition-colors hover:bg-accent"
+            >
+              Contract Size Calculator
+            </Link>
           </div>
           <dl className="mx-auto mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
             <div>
