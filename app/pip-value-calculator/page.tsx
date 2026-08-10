@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PipValueCalculator } from "@/components/PipValueCalculator";
 import { AssetGrid } from "@/components/AssetGrid";
+import { ASSETS } from "@/lib/assets";
 import { JsonLd } from "@/components/JsonLd";
 import {
   faqJsonLd,
@@ -88,6 +89,61 @@ export default function PipValuePage() {
           prop firm&apos;s daily drawdown.
         </p>
       </div>
+
+      <section className="mx-auto mt-12 max-w-3xl">
+        <h2 className="text-lg font-semibold">
+          What a 1% stop actually costs on each market
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Using a $100,000 prop firm account and a 1% risk limit ($1,000), here
+          is the cash value of the tick or pip and how many contracts or lots
+          each market allows. These numbers come from the real contract specs
+          the calculator uses.
+        </p>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-border/60">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="border-b bg-card text-xs uppercase tracking-wide text-muted-foreground">
+                <th className="px-4 py-3 font-semibold">Market</th>
+                <th className="px-4 py-3 font-semibold">Value per {""}unit</th>
+                <th className="px-4 py-3 font-semibold">Per {""}contract/lot</th>
+                <th className="px-4 py-3 font-semibold">Max size @ $1,000</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              {["nq-nasdaq", "es-s-and-p-500", "us30-dow-jones", "btc-bitcoin", "eth-ethereum", "xau-gold", "eur-usd"].map(
+                (slug) => {
+                  const a = ASSETS.find((x) => x.slug === slug);
+                  if (!a) return null;
+                  const stopDist = Math.abs(a.defaultEntry - a.defaultStop);
+                  const perUnit = a.tickValue * stopDist;
+                  const maxSize = Math.floor(1000 / perUnit);
+                  return (
+                    <tr key={slug}>
+                      <td className="px-4 py-2.5 font-medium">{a.symbol}</td>
+                      <td className="px-4 py-2.5 text-muted-foreground">
+                        ${a.tickValue} per {a.pointLabel === "$" ? "$1 move" : a.pointLabel}
+                      </td>
+                      <td className="px-4 py-2.5 text-muted-foreground">
+                        ${perUnit.toLocaleString()} for a{" "}
+                        {stopDist.toLocaleString()} {a.pointLabel} stop
+                      </td>
+                      <td className="px-4 py-2.5 font-medium text-primary">
+                        {maxSize} {a.positionUnit}
+                      </td>
+                    </tr>
+                  );
+                }
+              )}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">
+          Example: one NQ contract risks $20 per point, so a 150-point stop
+          costs $3,000 — over your $1,000 limit, which is why you size down to
+          0 contracts on this scenario and scale in instead.
+        </p>
+      </section>
 
       <section className="mt-16">
         <h2 className="text-center text-2xl font-bold tracking-tight">
