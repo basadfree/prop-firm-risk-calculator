@@ -78,8 +78,24 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
+  alternateName: "Prop Firm Position Size Calculator",
   description: SITE_TAGLINE,
   url: siteUrl(),
+  inLanguage: "en",
+  publisher: { "@type": "Organization", name: SITE_NAME, url: siteUrl() },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${siteUrl()}/?q={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: siteUrl(),
+  logo: `${siteUrl()}/icon.svg`,
 };
 
 export default function RootLayout({
@@ -93,6 +109,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <SiteHeader />
         <main className="flex-1">{children}</main>
