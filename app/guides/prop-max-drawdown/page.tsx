@@ -18,7 +18,7 @@ export function generateMetadata(): Metadata {
     title:
       "Max Loss vs Max Daily Loss on Prop Accounts: Drawdown Limits Explained",
     description:
-      "Prop firms set both a max drawdown and a daily loss limit. Learn the difference, the common breaching mistakes, and how to size trades to stay inside both.",
+      "Prop firms impose two limits: a 5–10% max drawdown and a 4–5% daily loss limit. Learn the difference, the common breaching mistakes, and the sizing rule that keeps you inside both.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
