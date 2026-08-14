@@ -34,13 +34,13 @@ jobs:
           host=$(printf '%s' "$origin" | sed -E 's#^https?://##')
           key_location="$origin/$KEY.txt"
           list=$(printf '%s' "$urls" | python3 -c 'import sys,json
-lines=[l.strip() for l in sys.stdin if l.strip()]
-print(json.dumps(list(lines)))')
+          lines=[l.strip() for l in sys.stdin if l.strip()]
+          print(json.dumps(list(lines)))')
           payload=$(python3 - "$host" "$KEY" "$key_location" "$list" <<'PY'
-import sys, json
-host, key, key_location = sys.argv[1], sys.argv[2], sys.argv[3]
-url_list = json.loads(sys.argv[4])
-print(json.dumps({"host": host, "key": key, "keyLocation": key_location, "urlList": url_list}))
+          import sys, json
+          host, key, key_location = sys.argv[1], sys.argv[2], sys.argv[3]
+          url_list = json.loads(sys.argv[4])
+          print(json.dumps({"host": host, "key": key, "keyLocation": key_location, "urlList": url_list}))
 PY
 )
           if [ -z "$payload" ]; then
