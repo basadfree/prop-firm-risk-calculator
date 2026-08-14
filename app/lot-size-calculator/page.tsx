@@ -53,6 +53,14 @@ const faqs = [
     q: "Why does lot size matter more than stop distance?",
     a: "Because it converts your stop into real money. A 10-point stop on NQ costs $200 per contract; on ES it costs $500. The same stop distance changes your cash risk based purely on the instrument's value per point — lot size is the lever that keeps that cash risk inside your prop firm limit.",
   },
+  {
+    q: "What is the difference between lot size and contract size?",
+    a: "Lot size is the forex quantity unit — one standard lot = 100,000 units ($10 per pip on EUR/USD), one mini = 10,000 ($1 per pip), one micro = 1,000 ($0.10 per pip). Contract size is the equivalent fixed quantity for futures, like one NQ contract = $20 per point or one ES = $50 per point. In both cases the number converts price distance into dollar risk — lot size is just the name forex uses and contract size the name futures uses.",
+  },
+  {
+    q: "How many contracts can I trade on NQ, ES or MNQ with $1,000 risk?",
+    a: "Divide $1,000 by the stop's cash value per contract. At a 50-point stop, NQ costs $1,000 per contract (50 × $20) so you get one contract, ES costs $2,500 (50 × $50) so you get less than one — a micro — and MNQ costs $100 (50 × $2) so you can trade ten. Know the contract multiplier before sizing any futures trade.",
+  },
 ];
 
 export default function LotSizeCalculatorPage() {

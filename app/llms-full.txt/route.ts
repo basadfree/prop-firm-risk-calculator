@@ -45,6 +45,9 @@ export function GET() {
     `- [Maximum drawdown rules](${base}/guides/prop-max-drawdown): static vs trailing drawdown explained.`,
     `- [What is a prop firm](${base}/guides/what-is-a-prop-firm): funded accounts, evaluations and payouts.`,
     `- [What is a prop firm challenge](${base}/guides/what-is-a-prop-firm-challenge): the evaluation phases, targets and limits.`,
+    `- [Funded account rules](${base}/guides/funded-account-rules): daily loss, drawdown, consistency and payout rules across the big five firms.`,
+    `- [Prop firm payouts](${base}/guides/prop-firm-payout): when you can withdraw and how profit splits work.`,
+    `- [How to get funded](${base}/guides/how-to-get-funded): choosing a firm, challenge costs and red flags.`,
     `- [About](${base}/about).`,
   ].join("\n");
 

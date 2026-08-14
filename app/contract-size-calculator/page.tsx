@@ -55,6 +55,18 @@ const faqs = [
     q: "Does contract size affect my prop firm position sizing?",
     a: "Completely. Your position size is dollar risk divided by (stop distance × contract size multiplier). A larger multiplier means fewer contracts for the same risk — contract size is the first number to check before you enter any funded-account trade.",
   },
+  {
+    q: "What is the lot size vs contract size difference?",
+    a: "A lot is the standard unit of quantity in forex — one standard lot is 100,000 units of base currency ($10 per pip on EUR/USD) — while a contract is the fixed quantity a futures product represents, like one NQ contract covering $20 per index point. They are the same idea with different names and different values: the 'unit' your position size is measured in for each market.",
+  },
+  {
+    q: "What is the MNQ futures contract size?",
+    a: "The Micro E-mini Nasdaq 100 (MNQ) is one-tenth of the full NQ at $2 per index point per contract, while the NQ itself is $20 per point. A 100-point stop on MNQ costs $200 versus $2,000 on NQ. Micro contracts like MNQ and MES (Micro S&P 500 at $5 per point) let smaller prop-firm accounts trade the same indices with a fraction of the cash risk.",
+  },
+  {
+    q: "Where can I find a futures contract size list?",
+    a: "Every CME product has its multiplier published in its contract specs: NQ $20/point, MNQ $2/point, ES $50/point, MES $5/point, US30 $5/point (via the Dow futures), and gold futures $100 per $1 move. This calculator shows the multiplier, value per point or pip, and the notional size for each supported market — the practical contract size list for prop-firm trading.",
+  },
 ];
 
 export default function ContractSizeCalculatorPage() {

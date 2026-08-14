@@ -53,6 +53,26 @@ const faqs = [
     q: "Should my stop loss depend on my account balance?",
     a: "Yes. Position size should always be derived backwards from a fixed dollar risk (balance × risk%) divided by the stop's cash value per unit. Never pick a stop distance first and size to it blindly — that is how a single loss breaks a prop firm account.",
   },
+  {
+    q: "How do I calculate stop loss in pips for forex?",
+    a: "A stop loss pips calculator uses: dollar risk ÷ (pip value per lot × number of lots). For EUR/USD each standard lot is worth $10 per pip, so a 20-pip stop costs $200 per lot. To risk exactly $200, trade one standard lot; to risk $100, use a half lot. Work backwards from the dollar risk you can afford, never forwards from the pip count.",
+  },
+  {
+    q: "What is a stop loss percentage and how is it calculated?",
+    a: "The stop loss percentage is your risk per trade as a share of the account: risk% = dollar risk ÷ balance × 100. If you risk $500 on a $50,000 account that is 1%. Most traders size the stop so the cash risk lands between 0.5% and 1% of the account — the same range most prop firms allow against their daily loss limit.",
+  },
+  {
+    q: "How much should I risk per trade on a 1% risk account?",
+    a: "A 1% risk rule means the dollar value of your stop loss equals 1% of the account. On $100,000 that is $1,000 per trade. Divide that by your stop distance's value per unit to get the position size — for NQ (worth $20 per point) a 50-point stop allows one contract ($1,000), while on ES (worth $50 per point) the same 50-point stop costs $2,500, so you can only trade a half or micro contract.",
+  },
+  {
+    q: "How does a stop loss calculator work for crypto?",
+    a: "For crypto, risk = |entry − stop| × position size in coins. If Bitcoin is $100,000 and you buy 0.1 BTC with a stop at $95,000, the stop risks $5,000 × 0.1 = $500. Cryptocurrency moves are wide, so the percentage result matters more than the price distance — always convert the stop distance into dollars against your risk%.",
+  },
+  {
+    q: "How does stop loss risk work for futures like NQ and ES?",
+    a: "Futures use fixed contract multipliers: NQ is $20 per point per contract, MNQ is $2, ES is $50, and the Micro ES is $5. A stop is just the point distance times the multiplier times contracts — a 100-point stop on one NQ is $2,000. Futures stop losses must always be sized so the dollar result fits your account risk%, because the multiplier turns small distances into large cash.",
+  },
 ];
 
 export default function StopLossCalculatorPage() {
@@ -78,6 +98,28 @@ export default function StopLossCalculatorPage() {
       </div>
 
       <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">How it works — the stop loss formula</h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Every stop loss calculator runs on the same formula:{" "}
+          <strong className="text-foreground">dollar risk = |entry − stop| ×
+          value per point/pip × position size</strong>. The value per unit comes
+          from the instrument&apos;s real contract specs — NQ pays $20 per point
+          per contract, ES $50, MNQ $2, EUR/USD $10 per pip per lot, and crypto
+          pays $1 per $1 of move per unit. That is why the same 50-point stop
+          costs $1,000 on NQ but $2,500 on ES.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          The result is then checked against your{" "}
+          <strong className="text-foreground">risk %</strong> — the stop loss
+          percentage of the account. A 1% risk rule on a $100,000 account means
+          the stop may cost at most $1,000, so you size the position backwards
+          from that number. Prop firms measure the same dollar result against
+          their daily loss limit, which is why this calculator covers forex,
+          futures and crypto with the real multipliers.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
         <h2 className="text-lg font-semibold">
           From stop-loss dollars to position size
         </h2>
@@ -93,7 +135,21 @@ export default function StopLossCalculatorPage() {
             position sizing calculator
           </Link>{" "}
           and it returns the exact contracts or lots that keep every loss inside
-          the daily drawdown limit.
+          the daily drawdown limit. New here? Read the{" "}
+          <Link
+            href="/guides/funded-account-rules"
+            className="font-medium text-primary hover:underline"
+          >
+            funded account rules guide
+          </Link>{" "}
+          for the daily-loss and drawdown numbers to size against, or the{" "}
+          <Link
+            href="/guides/prop-max-drawdown"
+            className="font-medium text-primary hover:underline"
+          >
+            max drawdown guide
+          </Link>{" "}
+          for the limits that end accounts.
         </p>
       </div>
 
