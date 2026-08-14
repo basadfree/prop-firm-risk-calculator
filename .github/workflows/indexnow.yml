@@ -41,8 +41,8 @@ jobs:
           host, key, key_location = sys.argv[1], sys.argv[2], sys.argv[3]
           url_list = json.loads(sys.argv[4])
           print(json.dumps({"host": host, "key": key, "keyLocation": key_location, "urlList": url_list}))
-PY
-)
+          PY
+          )
           if [ -z "$payload" ]; then
             echo "::error::JSON payload build failed"
             exit 1
