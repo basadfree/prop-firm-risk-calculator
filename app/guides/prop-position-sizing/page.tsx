@@ -17,20 +17,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Position Sizing for Funded Prop Accounts: 2% Rule, Daily Loss Limits & Examples",
+      "Position Sizing for Prop Accounts: 2% Rule",
     description:
-      "Learn exactly how to size positions on funded prop accounts. The 2% risk rule, daily loss limits, tick values for NQ, MNQ, BTC, gold and forex, plus worked examples.",
+      "Size positions on funded prop accounts with the 2% rule and real tick values for NQ, MNQ, BTC, gold and forex — with worked examples and the sizing formula.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Position Sizing for Funded Prop Accounts: 2% Rule, Daily Loss Limits & Examples",
+        "Position Sizing for Prop Accounts: 2% Rule & Real Examples",
       description:
         "The 2% risk rule, daily loss limits, tick values and worked examples for NQ, MNQ, BTC, gold and forex.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Position Sizing for Prop Accounts: 2% Rule & Real Examples",
+      description:
+        "The 2% risk rule, daily loss limits, tick values and worked examples for NQ, MNQ, BTC, gold and forex.",
     },
   };
 }
@@ -60,6 +67,11 @@ const guideFaqs = [
     question: "How is lot size calculated for forex pairs like EUR/USD?",
     answer:
       "One standard lot of EUR/USD moves $10 per pip. Convert your stop distance in price to pips (divide by 0.0001), then size = dollar risk ÷ (stop in pips × $10).",
+  },
+  {
+    question: "How much risk should I take per trade on a funded account?",
+    answer:
+      "Most successful funded traders risk 0.5–1% per trade. A 1% risk rule on a $50,000 account means $500 of risk; on a $100,000 account it is $1,000. This keeps a losing streak far below the 5% daily loss limit and the 8–10% max drawdown, so no run of stop-outs can end the account.",
   },
 ];
 
@@ -118,6 +130,17 @@ export default function PropPositionSizingPage() {
           position that is too large for the stop you chose. This guide teaches you
           the exact formula prop-firm traders use to size NQ, MNQ, BTC, gold and forex
           trades, with real numbers you can check yourself.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          How do you calculate position size on a prop account?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          Position size = (account balance × risk %) ÷ (stop distance × tick
+          value). On a $50,000 account risking 1% ($500) with a 100-point MNQ
+          stop worth $2 per point, you trade 500 ÷ (100 × 2) = 2.5, rounded down
+          to 2 MNQ contracts. Size every trade so a single stop-out costs
+          0.5–1% of the account and never breaches the firm&apos;s daily loss limit.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">
@@ -368,6 +391,39 @@ Position size = $500 ÷ (30 × $10)      = 1.67 lots
             </Link>
           </div>
         </div>
+
+        <section className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold tracking-tight">Related guides</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 leading-relaxed">
+            <li>
+              <Link href="/guides/funded-account-rules" className="font-medium text-primary hover:underline">
+                Funded Account Rules
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the daily loss and drawdown numbers your size must fit inside.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/prop-max-drawdown" className="font-medium text-primary hover:underline">
+                Max Loss vs Daily Loss: Drawdown Limits Explained
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — how the two limits change the size you can afford.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/daily-loss-vs-trailing" className="font-medium text-primary hover:underline">
+                Daily Loss Limit vs Trailing Drawdown
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — which limit you must size against first.
+              </span>
+            </li>
+          </ul>
+        </section>
       </article>
     </>
   );

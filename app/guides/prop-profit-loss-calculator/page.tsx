@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Prop Account Profit & Loss Math: From Ticks to Percentages",
+      "Prop Account P/L Math: Ticks, Pips & Percentages",
     description:
-      "Learn how to calculate profit and loss on prop accounts: tick and pip values for NQ, ES, MNQ, gold and forex, dollar P/L from points and lots, and how to express any result as a percentage of your account.",
+      "Calculate profit and loss on prop accounts: tick and pip values for NQ, ES, MNQ, gold and forex, plus results as a percentage of your balance.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Prop Account Profit & Loss Math: From Ticks to Percentages",
+        "Prop Account P/L Math: Ticks, Pips & Percentages",
       description:
         "Tick and pip values, dollar P/L from points and lots, and the percentage math every funded trader needs.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Prop Account P/L Math: Ticks, Pips & Percentages",
+      description:
+        "Tick and pip values, dollar P/L from points and lots, and the percentage math every funded trader needs.",
     },
   };
 }
@@ -121,6 +128,18 @@ export default function PropProfitLossCalculatorPage() {
           in percentages. This guide closes that gap — tick values, pip values, dollar
           P/L from points and lots, and the conversion that tells you how close you are
           to a limit at any moment.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          How do you calculate P/L on a prop account?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          For futures: P/L = contract size × tick value × (exit − entry). For
+          forex: P/L = pip value × pips moved. For NQ, $20 per point per
+          contract; ES $50; MNQ $2; EUR/USD $10 per pip per standard lot. Then
+          express the result as a percentage of your balance — on $50,000, a
+          $750 profit is 1.5% — and compare that against your daily loss and max
+          drawdown limits.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Max Loss vs Max Daily Loss on Prop Accounts: Drawdown Limits Explained",
+      "Max Loss vs Daily Loss on Prop Accounts",
     description:
-      "Prop firms impose two limits: a 5–10% max drawdown and a 4–5% daily loss limit. Learn the difference, the common breaching mistakes, and the sizing rule that keeps you inside both.",
+      "Prop firms impose two limits: a 5–10% max drawdown and a 4–5% daily loss. Learn the difference and the sizing rule that keeps you inside both.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Max Loss vs Max Daily Loss on Prop Accounts: Drawdown Limits Explained",
+        "Max Loss vs Daily Loss on Prop Accounts: Limits Explained",
       description:
         "Understand the max total drawdown, the daily loss limit, and exactly which mistakes breach funded accounts.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Max Loss vs Daily Loss on Prop Accounts: Limits Explained",
+      description:
+        "Understand the max total drawdown, the daily loss limit, and exactly which mistakes breach funded accounts.",
     },
   };
 }
@@ -59,6 +66,11 @@ const guideFaqs = [
     question: "Which limit is normally breached first?",
     answer:
       "The daily loss limit is usually the tighter, so bad days hit it first. Max drawdown breaches usually come from a streak of full-risk trades that repeatedly touch the daily ceiling while never fully recovering.",
+  },
+  {
+    question: "How much can I lose per day on a $100,000 funded account?",
+    answer:
+      "With a typical 5% daily loss limit you may lose $5,000 in a single trading day; with a stricter 4% cap it is $4,000. The daily limit is measured from that day's starting balance, so size each trade so a stop-out costs no more than 20–25% of the daily buffer — roughly $1,000–$1,250 here.",
   },
 ];
 
@@ -117,6 +129,18 @@ export default function PropMaxDrawdownPage() {
           first and quietly get removed by the second. This guide breaks down both,
           shows you how they interact, and gives you a sizing rule that keeps you inside
           the lines.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          What is the difference between max loss and daily loss?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          The max loss (max drawdown) is the total equity you may lose from the
+          starting balance or your highest peak — usually 5–10% — and it
+          accumulates until the account ends. The daily loss limit is how far
+          equity may fall in a single trading day, usually 4–5%, and it resets
+          the next day. You must stay inside both, and the daily limit is the
+          one that ends most accounts first.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">
@@ -276,6 +300,48 @@ export default function PropMaxDrawdownPage() {
             </Link>
           </div>
         </div>
+
+        <section className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold tracking-tight">Related guides</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 leading-relaxed">
+            <li>
+              <Link href="/guides/funded-account-rules" className="font-medium text-primary hover:underline">
+                Funded Account Rules Explained
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the daily loss and drawdown numbers your size must fit inside.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/daily-loss-vs-trailing" className="font-medium text-primary hover:underline">
+                Daily Loss Limit vs Trailing Drawdown
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the two limits that end the most funded accounts.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/prop-position-sizing" className="font-medium text-primary hover:underline">
+                Position Sizing for Funded Prop Accounts
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — how to size trades inside both loss limits.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/prop-firm-comparison" className="font-medium text-primary hover:underline">
+                Prop Firm Comparison: Apex vs FTMO vs Topstep vs Funding Pips
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — which firms use static vs trailing drawdown.
+              </span>
+            </li>
+          </ul>
+        </section>
       </article>
     </>
   );

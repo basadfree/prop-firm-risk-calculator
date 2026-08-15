@@ -7,15 +7,16 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
 const url = absoluteUrl("/max-drawdown-calculator");
 
 export const metadata: Metadata = {
-  title: "Max Drawdown Calculator for Prop Firms – Daily Loss Limit & Trailing",
+  title: "Max Drawdown Calculator for Prop Firms",
   description:
-    "Convert your prop firm daily loss limit and max drawdown percentages into exact dollar buffers. Free static & trailing drawdown calculator for funded accounts, no signup.",
+    "Convert your prop firm daily loss limit and max drawdown percentages into exact dollar buffers. Free static & trailing drawdown calculator, no signup.",
   alternates: {
     canonical: url,
     languages: { en: url, "x-default": url },
@@ -28,7 +29,12 @@ export const metadata: Metadata = {
       "Know the exact dollar amount between your balance and a failed funded account.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Max Drawdown Calculator for Prop Firms – Daily Loss & Trailing",
+    description:
+      "Know the exact dollar amount between your balance and a failed funded account.",
+  },
 };
 
 const faqs = [
@@ -70,6 +76,19 @@ export default function MaxDrawdownCalculatorPage() {
           your balance and both percentages, and this calculator shows the exact
           dollar buffers — for static and trailing structures — before you risk
           a single trade.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          What is my max drawdown in dollars?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          On a $100,000 account, a 10% max drawdown breaches at $90,000 and a
+          5% daily loss limit allows $5,000 per day. A static limit is measured
+          from the starting balance; a trailing limit from your highest equity
+          peak, so profits raise the floor. Enter both percentages above to see
+          your exact breach levels.
         </p>
       </div>
 
@@ -182,6 +201,15 @@ export default function MaxDrawdownCalculatorPage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Max Drawdown Calculator",
+          description:
+            "Free max drawdown calculator for prop firms: convert daily loss limit and max drawdown percentages into exact dollar buffers for static and trailing structures, no signup.",
+          url,
+          keywords: ["max drawdown calculator", "daily loss limit calculator", "trailing drawdown", "prop firm drawdown"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

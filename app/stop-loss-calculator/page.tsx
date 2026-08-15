@@ -8,13 +8,14 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
 const url = absoluteUrl("/stop-loss-calculator");
 
 export const metadata: Metadata = {
-  title: "Stop Loss Calculator – Dollar Risk for NQ, ES, Forex & Crypto",
+  title: "Stop Loss Calculator for NQ, ES, Forex & Crypto",
   description:
     "Calculate exactly how much cash your stop-loss risks on NQ, ES, forex and crypto before entering a trade. Free prop-firm stop loss calculator, no signup.",
   alternates: {
@@ -24,12 +25,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "RiskCalc",
-    title: "Stop Loss Calculator – Dollar Risk for NQ, ES, Forex & Crypto",
+    title: "Stop Loss Calculator for NQ, ES, Forex & Crypto",
     description:
       "Turn a stop distance into real dollars: entry, stop, size and the exact cash on the line for any prop-firm instrument.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stop Loss Calculator for NQ, ES, Forex & Crypto",
+    description:
+      "Turn a stop distance into real dollars: entry, stop, size and the exact cash on the line for any prop-firm instrument.",
+  },
 };
 
 const faqs = [
@@ -90,6 +96,18 @@ export default function StopLossCalculatorPage() {
           stop loss — not a guess. Enter entry, stop and size for NQ, ES, forex
           pairs or crypto and see the dollar risk instantly, the same number a
           prop firm&apos;s daily drawdown rule measures against.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          How much does my stop-loss cost in dollars?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Dollar risk = |entry − stop| × value per point/pip × position size.
+          An NQ trade entered at 19,850 with a stop at 19,700 and 2 contracts
+          risks 150 points × $20 × 2 = $6,000. This is the number prop firms
+          compare against the daily loss limit before you enter a trade.
         </p>
       </div>
 
@@ -237,6 +255,15 @@ export default function StopLossCalculatorPage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Stop Loss Calculator",
+          description:
+            "Free stop loss calculator: convert any entry, stop and size into the exact dollar risk on NQ, ES, forex and crypto, no signup.",
+          url,
+          keywords: ["stop loss calculator", "stop loss pips", "dollar risk calculator", "prop firm stop loss"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

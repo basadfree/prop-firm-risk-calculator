@@ -5,8 +5,8 @@ export function QuickAnswers({ asset }: { asset: Asset }) {
 
   const items = [
     {
-      q: `What is ${asset.name} position sizing?`,
-      a: `${asset.description.split(" — ")[0]}. Enter your account balance, risk %, entry price and stop-loss to get the exact ${asset.positionUnit} to trade while keeping your risk inside prop-firm limits.`,
+      q: `How many ${asset.positionUnit} of ${asset.symbol} should I trade?`,
+      a: `Position size = (account balance × risk %) ÷ (stop distance × value per unit). For ${asset.name} (${asset.symbol}), each ${asset.pointLabel.replace(/s$/, "")} of stop is worth $${asset.tickValue} per ${unit}, so on a $100,000 account risking 1% the calculator converts your dollar risk into the exact ${asset.positionUnit} — keeping every loss inside prop-firm daily limits.`,
     },
     {
       q: `How much is one ${asset.pointLabel} worth for ${asset.symbol}?`,
@@ -18,16 +18,17 @@ export function QuickAnswers({ asset }: { asset: Asset }) {
     },
   ];
 
+  const [lead, ...rest] = items;
+
   return (
     <section
       aria-label="Quick answers"
       className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6"
     >
-      <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-        Quick Answers
-      </h2>
-      <dl className="mt-3 space-y-4">
-        {items.map((item) => (
+      <h2 className="text-lg font-semibold">{lead.q}</h2>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{lead.a}</p>
+      <dl className="mt-4 space-y-4 border-t border-border/60 pt-4">
+        {rest.map((item) => (
           <div key={item.q}>
             <dt className="text-sm font-semibold">{item.q}</dt>
             <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">

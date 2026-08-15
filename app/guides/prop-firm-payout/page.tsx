@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Prop Firm Payouts: When You Can Withdraw & How Profit Splits Work",
+      "Prop Firm Payouts: When You Can Withdraw & Splits",
     description:
-      "How prop firm payouts actually work: profit split 80/20, payout frequency (bi-weekly vs monthly), minimum withdrawal, first-payout rules and consistency checks. Real numbers for Apex, FTMO, Topstep, 5ers and Funding Pips.",
+      "How prop payouts work: profit split, payout frequency, minimum withdrawal and first-payout rules — with real numbers across the major firms.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Prop Firm Payouts: When You Can Withdraw & How Profit Splits Work",
+        "Prop Firm Payouts: When You Can Withdraw & Profit Splits",
       description:
         "Profit splits, payout frequency, minimum withdrawals and the consistency rules that gate your first withdrawal — with firm-by-firm numbers.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Prop Firm Payouts: When You Can Withdraw & Profit Splits",
+      description:
+        "Profit splits, payout frequency, minimum withdrawals and the consistency rules that gate your first withdrawal — with firm-by-firm numbers.",
     },
   };
 }
@@ -128,6 +135,18 @@ export default function PropFirmPayoutPage() {
           minimum-profit gate on your first withdrawal and the consistency rules
           that can hold money back — so you know exactly what a funded account
           pays and when.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          How do prop firm payouts work?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          You withdraw your profit split (usually 80% to you) on the firm&apos;s
+          cycle — most firms pay every 14 days or monthly — after the account
+          reaches a minimum profit, commonly 4–8% of the starting balance. The
+          first payout is often limited to the profit you earned, not the firm&apos;s
+          capital, and consistency or news-trading rules can void it. Read the
+          payout schedule before you trade.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

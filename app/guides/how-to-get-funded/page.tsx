@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "How to Get a Funded Trading Account: Challenge, Rules & Costs",
+      "How to Get a Funded Trading Account: The Full Path",
     description:
-      "Step-by-step: pick a prop firm, pass the challenge, avoid red flags and keep payouts coming. Covers evaluation costs, profit targets, loss limits — and honest answers on whether prop firms are legit and worth it.",
+      "Step-by-step: pick a prop firm, pass the challenge, avoid red flags and keep payouts coming — covering costs, profit targets and loss limits.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "How to Get a Funded Trading Account: Challenge, Rules & Costs",
+        "How to Get a Funded Trading Account: The Full Path",
       description:
         "The full path to a funded account — firm selection, challenge rules, costs and red flags — with straight answers on whether prop trading is worth it.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "How to Get a Funded Trading Account: The Full Path",
+      description:
+        "The full path to a funded account — firm selection, challenge rules, costs and red flags — with straight answers on whether prop trading is worth it.",
     },
   };
 }
@@ -129,6 +136,18 @@ export default function HowToGetFundedPage() {
           breach the daily loss limit. This guide walks the whole path and gives
           you the checklist that separates funded traders from repeat buyers of
           challenges.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          How do you get a funded trading account?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          Pick a reputable firm, buy a challenge (typically $30–$200 for a
+          $50k account), trade to the profit target (8–10%) without breaching
+          the 5% daily or 10% max drawdown, pass the verification phase, then
+          trade firm capital and withdraw on the payout cycle. The evaluation
+          fee is non-refundable, so size every trade to survive the loss limits
+          — that is where most attempts fail.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

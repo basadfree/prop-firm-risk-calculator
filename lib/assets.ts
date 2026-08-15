@@ -61,7 +61,7 @@ export const ASSETS: Asset[] = [
     defaultTakeProfit: 20150,
     h1: "Nasdaq 100 (NQ) Position Size Calculator",
     title:
-      "NQ Position Size Calculator for Prop Firms — Nasdaq 100 Risk Calculator",
+      "NQ Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact NQ (Nasdaq 100 E-mini) position size in contracts based on account balance, risk % and stop-loss. Built for prop firm and SMC/ICT traders.",
     seoIntro:
@@ -82,7 +82,7 @@ export const ASSETS: Asset[] = [
     defaultTakeProfit: 20150,
     h1: "Micro Nasdaq 100 (MNQ) Position Size Calculator",
     title:
-      "MNQ Position Size Calculator for Prop Firms — Micro Nasdaq 100 Risk Calculator",
+      "MNQ Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact MNQ (Micro Nasdaq 100) position size in contracts by account balance, risk % and stop-loss. Ideal for small prop firm accounts.",
     seoIntro:
@@ -102,7 +102,7 @@ export const ASSETS: Asset[] = [
     defaultStop: 65000,
     defaultTakeProfit: 71000,
     h1: "Bitcoin (BTC) Position Size Calculator",
-    title: "BTC Position Size Calculator for Prop Firms — Bitcoin Risk Calculator",
+    title: "Bitcoin (BTC) Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact Bitcoin position size in BTC based on account balance, risk % and stop-loss. Built for prop firm and SMC crypto traders.",
     seoIntro:
@@ -122,7 +122,7 @@ export const ASSETS: Asset[] = [
     defaultStop: 3450,
     defaultTakeProfit: 3750,
     h1: "Ethereum (ETH) Position Size Calculator",
-    title: "ETH Position Size Calculator for Prop Firms — Ethereum Risk Calculator",
+    title: "Ethereum (ETH) Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact Ethereum position size in ETH based on account balance, risk % and stop-loss. Built for SMC and prop firm crypto traders.",
     seoIntro:
@@ -142,7 +142,7 @@ export const ASSETS: Asset[] = [
     defaultStop: 2360,
     defaultTakeProfit: 2420,
     h1: "Gold (XAU/USD) Position Size Calculator",
-    title: "Gold Position Size Calculator for Prop Firms — XAU/USD Risk Calculator",
+    title: "Gold (XAU/USD) Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact Gold (XAU/USD) position size in lots based on account balance, risk % and stop-loss. Perfect for prop firm and SMC traders.",
     seoIntro:
@@ -163,7 +163,7 @@ export const ASSETS: Asset[] = [
     defaultStop: 1.08,
     defaultTakeProfit: 1.095,
     h1: "EUR/USD Position Size Calculator",
-    title: "EUR/USD Position Size Calculator for Prop Firms — Forex Risk Calculator",
+    title: "EUR/USD Position Size Calculator for Prop Firms",
     description:
       "Calculate your exact EUR/USD position size in lots based on account balance, risk % and stop-loss in pips. Built for prop firm forex traders.",
     seoIntro:
@@ -183,9 +183,9 @@ export const ASSETS: Asset[] = [
     defaultStop: 5530,
     defaultTakeProfit: 5680,
     h1: "S&P 500 (ES) Position Size Calculator",
-    title: "ES Position Size Calculator for Prop Firms — S&P 500 Risk Calculator",
+    title: "ES (S&P 500) Position Size Calculator for Prop Firms",
     description:
-      "Calculate your exact ES (E-mini S&P 500) position size in contracts based on account balance, risk % and stop-loss. For prop firm traders.",
+      "Calculate your exact ES (E-mini S&P 500) position size in contracts from account balance, risk % and stop-loss. Built for prop firm traders.",
     seoIntro:
       "The ES E-mini pays $50 per point per contract. Use this S&P 500 position size calculator to stay disciplined and protect your prop firm balance.",
     keywords: ["ES position size", "S&P 500 calculator", "ES risk calculator"],
@@ -203,7 +203,7 @@ export const ASSETS: Asset[] = [
     defaultStop: 41000,
     defaultTakeProfit: 41600,
     h1: "Dow Jones (US30) Position Size Calculator",
-    title: "US30 Position Size Calculator for Prop Firms — Dow Jones Risk Calculator",
+    title: "US30 (Dow Jones) Position Size Calculator",
     description:
       "Calculate your exact US30 (Dow Jones) position size in contracts based on account balance, risk % and stop-loss. Built for prop firm traders.",
     seoIntro:

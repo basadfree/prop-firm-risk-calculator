@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Free prop-firm position size calculator. Compute exact lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex based on account balance, risk % and stop-loss. Built for SMC and ICT traders.",
+    "Free prop-firm position size calculator. Get exact lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex from balance, risk % and stop-loss.",
   keywords: [
     "position size calculator",
     "prop firm risk calculator",

@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Daily Loss Limit vs Trailing Drawdown: Which One Ends Your Account First?",
+      "Daily Loss vs Trailing Drawdown on Prop Accounts",
     description:
-      "The daily loss limit and the trailing drawdown kill prop accounts in different ways. Learn the difference with a worked example, how to calculate both, and the sizing mistake traders make most often.",
+      "The daily loss limit and trailing drawdown fail prop accounts differently. Learn the math behind each, and the sizing mistake that breaches both.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Daily Loss Limit vs Trailing Drawdown: Which One Ends Your Account First?",
+        "Daily Loss Limit vs Trailing Drawdown: Which Ends You First?",
       description:
         "Two loss limits, two different failure modes. A worked example, the calculation behind each, and the mistake that breaches both.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Daily Loss Limit vs Trailing Drawdown: Which Ends You First?",
+      description:
+        "Two loss limits, two different failure modes. A worked example, the calculation behind each, and the mistake that breaches both.",
     },
   };
 }
@@ -122,6 +129,18 @@ export default function DailyLossVsTrailingPage() {
           completely different situations — one on a single bad day, the other on a
           slow give-back of profits. Knowing which one is closest to breaching at any
           moment tells you exactly how to size the next trade.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          Which limit ends a funded account first?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          The daily loss limit ends accounts first. It caps how far equity may
+          fall in one session — usually 4–5% of that day&apos;s starting balance —
+          and resets daily, so a single oversized trade can breach it in minutes.
+          The trailing drawdown (8–10% from your highest equity peak) usually
+          kills accounts later, through a slow give-back of profits after deep
+          gains. Size every trade against the daily ceiling first.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

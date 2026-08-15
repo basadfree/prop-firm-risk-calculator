@@ -8,15 +8,16 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
 const url = absoluteUrl("/leverage-calculator");
 
 export const metadata: Metadata = {
-  title: "Leverage Calculator for Prop Firms – Margin, Notional & Lot Size",
+  title: "Leverage Calculator: Margin, Notional & Lot Size",
   description:
-    "See exactly how much margin your broker locks up and the position value you control at any leverage ratio. Free leverage & margin calculator for forex, futures, gold and crypto, no signup.",
+    "See exactly how much margin your broker locks up and the position value you control at any leverage ratio. Free leverage & margin calculator, no signup.",
   alternates: {
     canonical: url,
     languages: { en: url, "x-default": url },
@@ -24,12 +25,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "RiskCalc",
-    title: "Leverage Calculator for Prop Firms – Margin, Notional & Lot Size",
+    title: "Leverage Calculator: Margin, Notional & Lot Size",
     description:
       "Convert position size and leverage into the exact margin required and the exposure you control on any market.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leverage Calculator: Margin, Notional & Lot Size",
+    description:
+      "Convert position size and leverage into the exact margin required and the exposure you control on any market.",
+  },
 };
 
 const faqs = [
@@ -71,6 +77,19 @@ export default function LeverageCalculatorPage() {
           size and leverage for NQ, ES, forex, gold or crypto and see the exact
           notional value you control and the margin your broker holds, for any
           market and any ratio.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          How much margin does my position require?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Margin = position value ÷ leverage. One standard EUR/USD lot is worth
+          100,000 × the price; at 1:100 leverage the margin is that notional
+          divided by 100. Leverage sets the margin locked up, not your risk —
+          your stop distance and position size decide the dollars at risk,
+          which is why prop firms measure drawdown instead.
         </p>
       </div>
 
@@ -189,6 +208,15 @@ export default function LeverageCalculatorPage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Leverage Calculator",
+          description:
+            "Free leverage and margin calculator for forex, futures, gold and crypto: see the notional value you control and the exact margin your broker locks up, no signup.",
+          url,
+          keywords: ["leverage calculator", "margin calculator", "forex leverage", "prop firm leverage"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

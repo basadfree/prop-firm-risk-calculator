@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Prop Firm Comparison: Apex vs FTMO vs Topstep vs Funding Pips — What Actually Matters",
+      "Prop Firm Comparison: Apex vs FTMO vs Topstep",
     description:
-      "Compare Apex Trader Funding, FTMO, Topstep and Funding Pips: evaluation fees, profit targets, loss limits, profit splits and rules. Learn the 6 factors that decide which prop firm is right for your trading style.",
+      "Compare Apex, FTMO, Topstep and Funding Pips on fees, profit targets, loss limits, splits and rules — and the factors that decide which fits your style.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Prop Firm Comparison: Apex vs FTMO vs Topstep vs Funding Pips — What Actually Matters",
+        "Prop Firm Comparison: Apex vs FTMO vs Topstep vs Funding Pips",
       description:
         "Fees, profit targets, loss limits, profit splits and rules across the four biggest prop firms — and the 6 factors that really decide your choice.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Prop Firm Comparison: Apex vs FTMO vs Topstep vs Funding Pips",
+      description:
+        "Fees, profit targets, loss limits, profit splits and rules across the four biggest prop firms — and the 6 factors that really decide your choice.",
     },
   };
 }
@@ -123,6 +130,18 @@ export default function PropFirmComparisonPage() {
           drawdown type, the profit target and the payout rules. This guide lays out
           what each firm is known for and gives you the checklist that actually
           decides which one fits you.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          Which prop firm is best for your trading style?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          No single firm is best — the right one matches your market and risk
+          style. Futures traders usually prefer Apex or Topstep for NQ, ES and
+          micro contracts; forex and CFD traders lean toward FTMO or Funding
+          Pips. Score each firm on its daily loss limit, drawdown type (static vs
+          trailing), profit target, evaluation price and payout cycle, then pick
+          the one whose rules your style can actually survive.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

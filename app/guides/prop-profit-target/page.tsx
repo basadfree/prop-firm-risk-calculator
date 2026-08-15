@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Profit Target on Prop Accounts: How Much Do You Actually Need?",
+      "Profit Target on Prop Accounts: How Much?",
     description:
-      "Prop firms set profit targets like 8–10% (phase one) and 4–5% (verification). Learn how the 80/20 split works, how to calculate what you still need, and how leverage changes the size of the target.",
+      "Prop firms set profit targets like 8–10% (phase one) and 4–5% (verification). Learn how the 80/20 split works and how leverage changes the size of the target.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Profit Target on Prop Accounts: How Much Do You Actually Need?",
+        "Profit Target on Prop Accounts: What Do You Actually Need?",
       description:
         "Profit targets, the 80/20 split, what is left to reach and how leverage changes the real size of the goal.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Profit Target on Prop Accounts: What Do You Actually Need?",
+      description:
+        "Profit targets, the 80/20 split, what is left to reach and how leverage changes the real size of the goal.",
     },
   };
 }
@@ -121,6 +128,18 @@ export default function PropProfitTargetPage() {
           account — the daily loss limit is. This guide breaks down how targets and
           splits are structured, how to compute exactly what you still need, and how
           leverage changes the real size of the goal.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          What is a typical prop firm profit target?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          The most common structure is 8–10% profit for phase one (the
+          challenge) and 4–5% for phase two (verification); some one-step
+          programs use a single 8–10% target. On a $100,000 account that means
+          $8,000–$10,000, then $4,000–$5,000. The exact number varies by firm
+          and tier, but a bigger first target followed by a smaller confirmation
+          target is the industry norm.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">

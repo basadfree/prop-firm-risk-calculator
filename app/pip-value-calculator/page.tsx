@@ -8,13 +8,14 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
 const url = absoluteUrl("/pip-value-calculator");
 
 export const metadata: Metadata = {
-  title: "Pip Value Calculator – Tick Value for NQ, ES, Forex & Crypto",
+  title: "Pip Value Calculator for NQ, ES, Forex & Crypto",
   description:
     "Find out how much one point, tick or pip is worth for NQ, ES, forex and crypto before you size a trade. Free prop-firm pip value calculator, no signup.",
   alternates: {
@@ -24,12 +25,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "RiskCalc",
-    title: "Pip Value Calculator – Tick Value for NQ, ES, Forex & Crypto",
+    title: "Pip Value Calculator for NQ, ES, Forex & Crypto",
     description:
       "Check the dollar value of one point, tick or pip for any instrument, then multiply it out to your actual stop distance.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pip Value Calculator for NQ, ES, Forex & Crypto",
+    description:
+      "Check the dollar value of one point, tick or pip for any instrument, then multiply it out to your real stop distance.",
+  },
 };
 
 const faqs = [
@@ -65,6 +71,19 @@ export default function PipValuePage() {
           See exactly how much one point, pip or tick of movement is worth for
           NQ, ES, forex pairs and crypto — then multiply it out to your real
           stop distance. The number every prop-firm position size depends on.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          How much is one pip or tick worth?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          One pip is worth $10 per standard lot on EUR/USD, one point $20 per
+          contract on NQ and $50 on ES, and one $1 move $100 per lot on gold.
+          Multiply that value by your stop distance to get the exact dollar risk
+          of any position — the number your prop firm&apos;s daily loss limit is
+          measured against.
         </p>
       </div>
 
@@ -174,6 +193,15 @@ export default function PipValuePage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Pip Value Calculator",
+          description:
+            "Free pip and tick value calculator for NQ, ES, forex, gold and crypto — the dollar value of one point or pip per unit, no signup.",
+          url,
+          keywords: ["pip value calculator", "tick value", "point value", "prop firm pip calculator"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

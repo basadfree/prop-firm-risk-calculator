@@ -16,7 +16,7 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "What Is a Prop Firm Challenge? Evaluation Rules, Profit Targets and Loss Limits",
+      "What Is a Prop Firm Challenge? Rules, Targets & Limits",
     description:
       "Prop firm challenges explained: the two-phase evaluation, profit targets (8–10% then 4–5%), daily and max drawdown limits, and what happens after you pass.",
     alternates: {
@@ -25,11 +25,18 @@ export function generateMetadata(): Metadata {
     },
     openGraph: {
       title:
-        "What Is a Prop Firm Challenge? Evaluation Rules, Profit Targets and Loss Limits",
+        "What Is a Prop Firm Challenge? Rules, Targets & Limits",
       description:
         "A clear breakdown of how a prop firm challenge works: phases, targets, loss limits, time limits and what you get after passing.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "What Is a Prop Firm Challenge? Rules, Targets & Limits",
+      description:
+        "A clear breakdown of how a prop firm challenge works: phases, targets, loss limits, time limits and what you get after passing.",
     },
   };
 }
@@ -59,6 +66,11 @@ const guideFaqs = [
     question: "Can you use a prop firm challenge calculator?",
     answer:
       "Yes — you can plan the whole run before you start. Decide your risk per trade (0.5–1%), compute the dollar value of your stop distance on your market (NQ $20/point, ES $50/point, gold $100/lot, EUR/USD $10/pip) and size so that two to three losing trades in a row never cross your daily loss limit. This site's lot size and stop-loss calculators do exactly that math.",
+  },
+  {
+    question: "How much does a prop firm challenge cost?",
+    answer:
+      "A $50,000 challenge typically costs $30–$200 depending on the firm and active promo, with $100k accounts usually running $60–$350. Sales are frequent, so the effective price is often far lower. The fee is non-refundable, which is why you should read the rulebook and size your trades before paying anything.",
   },
 ];
 
@@ -114,6 +126,18 @@ export default function WhatIsAPropFirmChallengePage() {
           The challenge is the gate every funded trader must walk through — pay a fee, hit a
           target, never breach a limit. This guide walks through the exact rules, the two
           phases, the math that keeps you alive, and what happens on each side of passing.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          What is a prop firm challenge?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          A prop firm challenge is the first phase of a funded account
+          evaluation. For a one-time fee you receive a simulated account (e.g.
+          $50,000) and must reach a profit target — typically 8–10% — while
+          staying inside hard loss limits of roughly 5% daily and 8–10% maximum
+          drawdown. Reach the target without breaching a limit and you advance
+          to the verification phase, then to a funded account.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">
@@ -315,6 +339,48 @@ export default function WhatIsAPropFirmChallengePage() {
             </Link>
           </div>
         </div>
+
+        <section className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold tracking-tight">Related guides</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 leading-relaxed">
+            <li>
+              <Link href="/guides/how-to-get-funded" className="font-medium text-primary hover:underline">
+                How to Get Funded
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — what comes after you pass the challenge and how to get there.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/funded-account-rules" className="font-medium text-primary hover:underline">
+                Funded Account Rules
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the limits that govern the account you earn after passing.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/prop-profit-target" className="font-medium text-primary hover:underline">
+                Profit Target on Prop Accounts
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — how big the 8–10% goal really is in dollars.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/what-is-a-prop-firm" className="font-medium text-primary hover:underline">
+                What Is a Prop Firm?
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the funded account model behind the challenge.
+              </span>
+            </li>
+          </ul>
+        </section>
       </article>
     </>
   );

@@ -8,15 +8,16 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
 const url = absoluteUrl("/lot-size-calculator");
 
 export const metadata: Metadata = {
-  title: "Lot Size Calculator for Prop Firms – Forex, Futures & Crypto",
+  title: "Lot Size Calculator for Forex, Futures & Crypto",
   description:
-    "Calculate the exact lot size, contract count or coin size for your account balance and stop distance. Free prop-firm lot size calculator for NQ, ES, forex, gold and crypto, no signup.",
+    "Calculate the exact lot size, contract count or coin size for your account balance and stop distance. Free prop-firm lot size calculator, no signup.",
   alternates: {
     canonical: url,
     languages: { en: url, "x-default": url },
@@ -24,12 +25,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "RiskCalc",
-    title: "Lot Size Calculator for Prop Firms – Forex, Futures & Crypto",
+    title: "Lot Size Calculator for Forex, Futures & Crypto",
     description:
       "Turn your stop distance and risk % into the exact lots or contracts to trade on any prop-firm instrument.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lot Size Calculator for Forex, Futures & Crypto",
+    description:
+      "Turn your stop distance and risk % into the exact lots or contracts to trade on any prop-firm instrument.",
+  },
 };
 
 const faqs = [
@@ -79,6 +85,19 @@ export default function LotSizeCalculatorPage() {
           percentage and stop distance for NQ, ES, forex pairs, gold or crypto,
           and get the exact lots or contracts that keep every loss inside your
           prop firm drawdown limit.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          How do I calculate my lot size for a prop firm account?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Lot size = (account balance × risk %) ÷ (stop distance × value per
+          unit). On a $100,000 account risking 1% with a 20-pip EUR/USD stop
+          worth $10 per pip, you trade $1,000 ÷ (20 × 10) = 5 standard lots.
+          On NQ at a 50-point stop worth $20 per point, that same $1,000 buys
+          exactly one contract.
         </p>
       </div>
 
@@ -202,6 +221,15 @@ export default function LotSizeCalculatorPage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Lot Size Calculator",
+          description:
+            "Free prop-firm lot size calculator: convert account balance, risk % and stop distance into exact lots or contracts for NQ, ES, forex, gold and crypto, no signup.",
+          url,
+          keywords: ["lot size calculator", "forex lot size", "prop firm lot size", "contract size calculator"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

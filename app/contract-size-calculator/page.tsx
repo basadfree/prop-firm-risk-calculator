@@ -8,6 +8,7 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   webSiteJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/jsonld";
 import { absoluteUrl } from "@/lib/site";
 
@@ -15,9 +16,9 @@ const url = absoluteUrl("/contract-size-calculator");
 
 export const metadata: Metadata = {
   title:
-    "Contract Size Calculator for Futures – NQ, ES, Gold & Forex Contract Multipliers",
+    "Contract Size Calculator: NQ, ES, Gold & Forex",
   description:
-    "Look up the contract size and multiplier for NQ, ES, US30, gold, forex and crypto futures, with the cash value of each point or pip. Free prop-firm contract size calculator, no signup.",
+    "Look up contract size and multiplier for NQ, ES, US30, gold, forex and crypto with the cash value of each point or pip. Free prop-firm calculator, no signup.",
   alternates: {
     canonical: url,
     languages: { en: url, "x-default": url },
@@ -31,7 +32,12 @@ export const metadata: Metadata = {
       "Every futures contract size and point value, converted to the dollar risk it creates on your prop-firm account.",
     url,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contract Size Calculator: NQ, ES, Gold & Forex",
+    description:
+      "Every futures contract size and point value, converted to the dollar risk it creates on your prop-firm account.",
+  },
 };
 
 const faqs = [
@@ -85,6 +91,19 @@ export default function ContractSizeCalculatorPage() {
           contract multiplier, value per point or pip, and the notional size
           you are actually trading — the numbers every prop-firm position size
           decision starts from.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-xl border border-border/60 bg-card p-6">
+        <h2 className="text-lg font-semibold">
+          What is the contract size of NQ, ES or gold?
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Contract size is the multiplier that converts price movement into
+          dollars: NQ pays $20 per point, MNQ $2, ES $50, MES $5, US30 $5, gold
+          $100 per $1 move per lot and EUR/USD $10 per pip per standard lot.
+          Multiply your stop distance by the multiplier to get the exact cash
+          risk of one unit.
         </p>
       </div>
 
@@ -202,6 +221,15 @@ export default function ContractSizeCalculatorPage() {
         data={faqJsonLd({
           url,
           questions: faqs.map((f) => ({ question: f.q, answer: f.a })),
+        })}
+      />
+      <JsonLd
+        data={softwareApplicationJsonLd({
+          name: "Contract Size Calculator",
+          description:
+            "Free futures contract size calculator: look up NQ, ES, US30, gold and forex multipliers and the cash value of each point or pip, no signup.",
+          url,
+          keywords: ["contract size calculator", "futures contract size", "NQ contract multiplier", "prop firm contract size"],
         })}
       />
       <JsonLd data={webSiteJsonLd()} />

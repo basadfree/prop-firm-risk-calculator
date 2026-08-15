@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "What Is a Prop Firm? How Funded Trading Accounts Work (Evaluation, Rules, Payouts)",
+      "What Is a Prop Firm? Funded Trading Accounts Explained",
     description:
-      "Prop firms explained: how a funded trading account works, the evaluation process, daily/max loss limits, profit splits and payouts — and whether trading your own money is better.",
+      "Prop firms explained: how funded trading accounts work, the evaluation, daily and max loss limits, profit splits and payouts — and if it beats your own money.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "What Is a Prop Firm? How Funded Trading Accounts Work (Evaluation, Rules, Payouts)",
+        "What Is a Prop Firm? Funded Trading Accounts Explained",
       description:
         "A plain-English breakdown of prop firms, funded accounts, evaluations, loss limits, profit splits and payouts.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "What Is a Prop Firm? Funded Trading Accounts Explained",
+      description:
+        "A plain-English breakdown of prop firms, funded accounts, evaluations, loss limits, profit splits and payouts.",
     },
   };
 }
@@ -59,6 +66,11 @@ const guideFaqs = [
     question: "Is prop trading worth it or are they a scam?",
     answer:
       "Legitimate firms exist and many traders profit from them, but the industry has real risks: the evaluation fee is non-refundable, limits are designed to be hard, and a few firms are notorious for payout delays or rulebook changes. Treat the evaluation fee as tuition, trade risk that respects both limits simultaneously, and only handle above-average-size payouts with firms that have an audited track record of actually paying.",
+  },
+  {
+    question: "How much money do you need to start with a prop firm?",
+    answer:
+      "Only the one-time evaluation fee — typically $30 to $200 for a $50,000 account, often discounted during sales. You never fund the full account balance yourself; the firm provides the capital after you pass. Compare the fee against the rules before buying, because the fee is the only real cash you are putting at risk.",
   },
 ];
 
@@ -114,6 +126,18 @@ export default function WhatIsAPropFirmPage() {
           A prop firm lets you trade capital you did not have to save up — after you prove
           you can protect it. This guide explains the entire model in plain English: what
           you buy, the rules that matter, how payouts work, and the honest costs of playing the game.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          What is a prop firm in trading?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          A proprietary trading firm (prop firm) is a company that provides
+          trading capital to individual traders it has vetted. You do not get a
+          loan and you do not spend your own money on the account balance.
+          Instead, you pay a small evaluation fee, prove you can trade profitably
+          inside strict risk limits, and then trade the firm&apos;s money while
+          keeping a profit split of typically 80–95%.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">
@@ -312,6 +336,48 @@ export default function WhatIsAPropFirmPage() {
             </Link>
           </div>
         </div>
+
+        <section className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold tracking-tight">Related guides</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-6 leading-relaxed">
+            <li>
+              <Link href="/guides/funded-account-rules" className="font-medium text-primary hover:underline">
+                Funded Account Rules
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the daily loss, drawdown and payout rules every account shares.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/what-is-a-prop-firm-challenge" className="font-medium text-primary hover:underline">
+                What Is a Prop Firm Challenge?
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the evaluation phases, targets and loss limits in detail.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/prop-firm-comparison" className="font-medium text-primary hover:underline">
+                Prop Firm Comparison
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — Apex vs FTMO vs Topstep vs Funding Pips.
+              </span>
+            </li>
+            <li>
+              <Link href="/guides/how-to-get-funded" className="font-medium text-primary hover:underline">
+                How to Get Funded
+              </Link>
+              <span className="text-muted-foreground">
+                {" "}
+                — the full path from challenge to payouts.
+              </span>
+            </li>
+          </ul>
+        </section>
       </article>
     </>
   );

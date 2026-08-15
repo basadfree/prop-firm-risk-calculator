@@ -53,7 +53,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: asset.description,
       url,
     },
-    twitter: { card: "summary_large_image" },
+    twitter: {
+      card: "summary_large_image",
+      title: asset.title,
+      description: asset.description,
+    },
   };
 }
 
@@ -102,6 +106,20 @@ export default function AssetCalculatorPage({ params }: Props) {
           className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
         >
           Read the full position sizing guide →
+        </Link>
+        <span className="mx-2 text-muted-foreground">·</span>
+        <Link
+          href="/guides/funded-account-rules"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+        >
+          Funded account rules →
+        </Link>
+        <span className="mx-2 text-muted-foreground">·</span>
+        <Link
+          href="/guides/prop-max-drawdown"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+        >
+          Max drawdown explained →
         </Link>
       </div>
 

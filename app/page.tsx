@@ -18,7 +18,7 @@ import { absoluteUrl } from "@/lib/site";
 
 export const metadata = {
   description:
-    "Free prop-firm position size calculator. Compute exact lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex based on account balance, risk % and stop-loss.",
+    "Free prop-firm position size calculator. Get exact lots, contracts and coins for NQ, MNQ, BTC, ETH, Gold and Forex from balance, risk % and stop-loss.",
 };
 
 const FEATURES = [

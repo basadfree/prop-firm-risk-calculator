@@ -16,20 +16,27 @@ const guideUrl = absoluteUrl(`/guides/${guideSlug}`);
 export function generateMetadata(): Metadata {
   return {
     title:
-      "Funded Account Rules Explained: Daily Loss, Drawdown, Payouts & More",
+      "Funded Account Rules: Daily Loss, Drawdown, Payouts",
     description:
-      "Every rule on a funded account, decoded: max daily loss, static vs trailing drawdown, consistency rules, payout frequency and duration. Compare Apex, FTMO, Topstep, 5ers and Funding Pips — and see exactly what a $50k funded account allows.",
+      "Funded account rules decoded: max daily loss, static vs trailing drawdown, consistency, payout frequency and what a $50k account allows across big firms.",
     alternates: {
       canonical: guideUrl,
       languages: { en: guideUrl, "x-default": guideUrl },
     },
     openGraph: {
       title:
-        "Funded Account Rules Explained: Daily Loss, Drawdown, Payouts & More",
+        "Funded Account Rules: Daily Loss, Drawdown, Consistency & Payouts",
       description:
         "The rules that govern every funded prop account — daily loss, drawdown, consistency, payouts — with a comparison across the big five firms.",
       url: guideUrl,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Funded Account Rules: Daily Loss, Drawdown, Consistency & Payouts",
+      description:
+        "The rules that govern every funded prop account — daily loss, drawdown, consistency, payouts — with a comparison across the big five firms.",
     },
   };
 }
@@ -127,6 +134,18 @@ export default function FundedAccountRulesPage() {
           payout. This guide breaks down the five rules every funded account
           shares — daily loss, drawdown, consistency, duration and payouts — and
           shows how Apex, FTMO, Topstep, 5ers and Funding Pips apply them.
+        </p>
+
+        <h2 className="mt-8 text-2xl font-bold tracking-tight">
+          What are the rules on a funded account?
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">
+          A funded account is governed by four core rules: a max daily loss
+          (usually 5% of the day&apos;s starting balance), a maximum drawdown
+          (usually 10%, static or trailing), a profit target or consistency
+          requirement, and payout conditions like a minimum profit buffer and a
+          set payout cycle. Breaching any one of them ends the account or blocks
+          a withdrawal, so every trade must be sized inside all four at once.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-5 text-sm text-muted-foreground">
